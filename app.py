@@ -1,8 +1,9 @@
 
 
-import sys
+
 import web
 from dataPro import Question
+import sys
 
 render = web.template.render('templates/')
 
