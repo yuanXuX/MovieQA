@@ -10,17 +10,20 @@ import jieba.posseg
 import re
 from QC import Question_classify
 from QT import QuestionTemplate
-# # 将自定义字典写入文件
-# result = []
-# with(open("./data/userdict.txt","r",encoding="utf-8")) as fr:
-#     vocablist=fr.readlines()
-#     for one in vocablist:
-#         if str(one).strip()!="":
-#             temp=str(one).strip()+" "+str(15)+" nr"+"\n"
-#             result.append(temp)
-# with(open("./data/userdict2.txt","w",encoding="utf-8")) as fw:
-#     for one in result:
-#         fw.write(one)
+
+
+'''
+result = []
+with(open("./data/userdict.txt","r",encoding="utf-8")) as fr:
+    vocablist=fr.readlines()
+    for one in vocablist:
+        if str(one).strip()!="":
+            temp=str(one).strip()+" "+str(15)+" nr"+"\n"
+            result.append(temp)
+with(open("./data/userdict2.txt","w",encoding="utf-8")) as fw:
+    for one in result:
+        fw.write(one)
+'''
 
 import sys, os
 
@@ -31,9 +34,6 @@ def blockPrint():
 # Restore
 def enablePrint():
     sys.stdout = sys.__stdout__
-# blockPrint()
-
-# enablePrint()
 
 
 
@@ -43,8 +43,8 @@ class Question():
         self.init_config()
 
     def init_config(self):
-        '''
-        读取词汇表
+        
+       
         with(open("./data/vocabulary.txt","r",encoding="utf-8")) as fr:
             vocab_list=fr.readlines()
         vocab_dict={}
@@ -55,7 +55,7 @@ class Question():
             vocablist.append(str(word).strip())
             print(vocab_dict)
         self.vocab=vocab_dict
-        '''
+        
         # 训练分类器
         self.classify_model=Question_classify()
         # 读取问题模板
@@ -67,7 +67,6 @@ class Question():
             mode_id,mode_str=str(one_mode).strip().split(":")
             # 处理一行，并存入
             self.question_mode_dict[int(mode_id)]=str(mode_str).strip()
-        # print(self.question_mode_dict)
 
         # 创建问题模板对象
         self.questiontemplate=QuestionTemplate()
@@ -128,8 +127,7 @@ class Question():
         try:
             answer=self.questiontemplate.get_question_answer(self.pos_quesiton,self.question_template_id_str)
         except:
-            answer="我也还不知道！"
-        # answer = self.questiontemplate.get_question_answer(self.pos_quesiton, self.question_template_id_str)
+            answer="目前无明确答案"
         return answer
 
 

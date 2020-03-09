@@ -1,8 +1,10 @@
-
-
 import pandas as pd
 from pandas import Series, DataFrame
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 import os
 import re
@@ -53,7 +55,7 @@ class Question_classify():
                         train_y.append(label_num)
         return train_x,train_y
 
-    # 训练并测试模型-NB
+    #NB模型
     def train_model_NB(self):
         X_train, y_train = self.train_x, self.train_y
         self.tv = TfidfVectorizer()
@@ -62,6 +64,37 @@ class Question_classify():
         clf = MultinomialNB(alpha=0.01)
         clf.fit(train_data, y_train)
         return clf
+    
+    #KNN模型
+    def train_model_knn(self):
+        X_train, y_train = self.train_x, self.train_y
+        self.tv = TfidfVectorizer()
+
+        train_data = self.tv.fit_transform(X_train).toarray()
+        clf = KNeighborsClassifier()
+        clf.fit(train_data, y_train)
+        return clf
+    
+    #Random forset模型
+    def train_model_rf(self):
+        X_train, y_train = self.train_x, self.train_y
+        self.tv = TfidfVectorizer()
+
+        train_data = self.tv.fit_transform(X_train).toarray()
+        clf = RandomForestClassifier(n_estimators=8)
+        clf.fit(train_data, y_train)
+        return clf
+    
+    def train_model_gbdt(self):
+        X_train, y_train = self.train_x, self.train_y
+        self.tv = TfidfVectorizer()
+
+        train_data = self.tv.fit_transform(X_train).toarray()
+        clf = GradientBoostingClassifier(n_estimators=200)
+        clf.fit(train_data, y_train)
+        return clf
+
+
 
     # 预测
     def predict(self,question):
