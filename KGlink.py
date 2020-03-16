@@ -1,3 +1,10 @@
+#-*- coding: UTF-8 -*-
+# @Time    : 2019/4/12 19:53
+# @Author  : xiongzongyang
+# @Site    : 
+# @File    : query.py
+# @Software: PyCharm
+
 from py2neo import Graph,Node,Relationship,NodeMatcher
 
 class Query():
