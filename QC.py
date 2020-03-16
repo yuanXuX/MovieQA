@@ -85,6 +85,7 @@ class Question_classify():
         clf.fit(train_data, y_train)
         return clf
     
+    #gbdt 模型
     def train_model_gbdt(self):
         X_train, y_train = self.train_x, self.train_y
         self.tv = TfidfVectorizer()
@@ -106,4 +107,4 @@ class Question_classify():
 
 if __name__ == '__main__':
     qc=Question_classify()
-    qc.predict("张学友的个人信息")
+    qc.predict("林青霞的简介")

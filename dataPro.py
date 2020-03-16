@@ -44,7 +44,7 @@ class Question():
 
     def init_config(self):
         
-       
+        #读取词汇表
         with(open("./data/vocabulary.txt","r",encoding="utf-8")) as fr:
             vocab_list=fr.readlines()
         vocab_dict={}
@@ -129,6 +129,7 @@ class Question():
         except:
             answer="目前无明确答案"
         return answer
+    
 
 
 
