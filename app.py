@@ -6,10 +6,9 @@ WEB框架
 import sys
 
 
-
+import sys
 import web
 from dataPro import Question
-import sys
 
 #静态界面模板
 render = web.template.render('templates/')
