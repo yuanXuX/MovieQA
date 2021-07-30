@@ -5,8 +5,8 @@ Created on Wed Mar 11 17:30:17 2020
 @author: xuyuan
 """
 
-import time
 
+import time
 import xlwt
 from lxml import etree
 import requests
