@@ -9,5 +9,6 @@ que=Question()
 def enablePrint():
     sys.stdout = sys.__stdout__
 enablePrint()
+#example
 result=que.question_process("周润发是谁")
 print(result)
