@@ -10,6 +10,7 @@ import os
 import re
 import jieba
 
+
 # 获取所有的文件
 def getfilelist(root_path):
     file_path_list=[]

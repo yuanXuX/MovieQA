@@ -27,6 +27,7 @@ with(open("./data/userdict2.txt","w",encoding="utf-8")) as fw:
 
 import sys, os
 
+
 # Disable
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')

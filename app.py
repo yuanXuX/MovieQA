@@ -10,6 +10,7 @@ import sys
 import web
 from dataPro import Question
 
+
 #静态界面模板
 render = web.template.render('templates/')
 #URL处理
